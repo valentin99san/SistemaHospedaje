@@ -9,11 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ms.Habitacion", "Ms.Habitac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ms.Habitacion.API", "Ms.Habitacion.API\Ms.Habitacion.API.csproj", "{5062E027-DE0C-4322-A99D-7C2C4AF25035}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ms.Habitacion.Dominio", "Ms.Habitacion.Dominio\Ms.Habitacion.Dominio.csproj", "{18F75D17-8F00-4B30-8898-48424D2830D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ms.Habitacion.Dominio", "Ms.Habitacion.Dominio\Ms.Habitacion.Dominio.csproj", "{18F75D17-8F00-4B30-8898-48424D2830D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ms.Habitacion.Aplicacion", "Ms.Habitacion.Aplicacion\Ms.Habitacion.Aplicacion.csproj", "{2254528C-A307-49B8-87CA-16959192B750}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ms.Habitacion.Aplicacion", "Ms.Habitacion.Aplicacion\Ms.Habitacion.Aplicacion.csproj", "{2254528C-A307-49B8-87CA-16959192B750}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ms.Habitacion.Infraestructura", "Ms.Habitacion.Infraestructura\Ms.Habitacion.Infraestructura.csproj", "{7FF551B5-96A6-4550-8A01-89241642C46F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ms.Habitacion.Infraestructura", "Ms.Habitacion.Infraestructura\Ms.Habitacion.Infraestructura.csproj", "{7FF551B5-96A6-4550-8A01-89241642C46F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ms.Alquiler", "Ms.Alquiler", "{24DCD504-2286-4AB6-8B65-9E4DA6E08D8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,7 @@ Global
 		{18F75D17-8F00-4B30-8898-48424D2830D8} = {4E691FDE-9046-4E9F-BD69-BFD1E7A7A7B4}
 		{2254528C-A307-49B8-87CA-16959192B750} = {4E691FDE-9046-4E9F-BD69-BFD1E7A7A7B4}
 		{7FF551B5-96A6-4550-8A01-89241642C46F} = {4E691FDE-9046-4E9F-BD69-BFD1E7A7A7B4}
+		{24DCD504-2286-4AB6-8B65-9E4DA6E08D8E} = {F6EB9C7C-8C2E-49CB-9F06-6CEF5692CA5F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A332C68-D44B-4AD6-980C-BD8B9161BA26}
