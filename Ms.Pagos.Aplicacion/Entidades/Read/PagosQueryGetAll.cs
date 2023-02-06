@@ -19,7 +19,7 @@ namespace Ms.Pagos.Aplicacion.Entidades.Read
             _pagos = _repository.db.GetCollection<dominio.Pagos>("pagos");
         }
 
-        public IEnumerable<dominio.Pagos> ListarHabitacion()
+        public IEnumerable<dominio.Pagos> ListarPagos()
         {
             return _pagos.Find(x => true).ToList();
         }

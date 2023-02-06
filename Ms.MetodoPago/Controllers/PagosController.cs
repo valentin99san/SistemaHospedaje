@@ -21,26 +21,26 @@ namespace Ms.MetodoPago.API.Controllers
 
 
         [HttpPost(ApiRoutes.RoutePagos.Create)]
-        public ActionResult<dominio.Habitacion> CrearHabitacion(dominio.Habitacion habitacion)
+        public ActionResult<dominio.Pagos> CrearPagos(dominio.Pagos pagos)
         {
-            HabitacionCommandCreate objHabitacion = new HabitacionCommandCreate();
-            return objHabitacion.CrearHabitacion(habitacion);
+            PagosCommandCreate objPagos = new PagosCommandCreate();
+            return objPagos.CrearPagos(pagos);
         }
 
 
         [HttpPut(ApiRoutes.RoutePagos.Update)]
-        public ActionResult<dominio.Habitacion> ModificarProducto(dominio.Habitacion habitacion)
+        public ActionResult<dominio.Pagos> ModificarPagos(dominio.Pagos pagos)
         {
-            HabitacionCommandUpdate objHabitacion = new HabitacionCommandUpdate();
-            return objHabitacion.ModificarHabitacion(habitacion);
+            PagosCommandUpdate objPagos = new PagosCommandUpdate();
+            return objPagos.ModificarPagos(pagos);
         }
 
 
         [HttpDelete(ApiRoutes.RoutePagos.Delete)]
-        public ActionResult<dominio.Habitacion> EliminarProducto(string id)
+        public ActionResult<dominio.Pagos> EliminarPagos(string id)
         {
-            HabitacionCommandDelete objHabitacion = new HabitacionCommandDelete();
-            return objHabitacion.EliminarProducto(id);
+            PagosCommandDelete objPagos = new PagosCommandDelete();
+            return objPagos.EliminarPagos(id);
         }
     }
 }
