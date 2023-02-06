@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ms.MetodoPago", "Ms.MetodoP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ms.MetodoPago.API", "Ms.MetodoPago\Ms.MetodoPago.API.csproj", "{AD9CC5BC-487D-4387-9CA6-E026E47A17EF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ms.Clientes", "Ms.Clientes", "{21DE49BC-EED0-46E8-8B93-4262A73FE020}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
