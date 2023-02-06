@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections;
+using dominio = Ms.Alquiler.Dominio.Entidades;
 using System.Collections.Generic;
-using TDA.Ms.Producto.Aplicacion.Producto;
-using static TDA.Ms.Producto.API.Routes.ApiRoutes;
-using dominio = TDA.Ms.Producto.Dominio.Entidades;
+using static Ms.Alquiler.API.Routes.ApiRoutes;
+using Ms.Alquiler.Aplicacion.Alquiler;
 
-namespace TDA.Ms.Producto.Api.Controllers
+namespace Ms.Alquiler.Api.Controllers
 {
     [ApiController]
     public class AlquilerController : ControllerBase
@@ -17,33 +18,33 @@ namespace TDA.Ms.Producto.Api.Controllers
             _service = service;
         }
 
-        [HttpGet(RouteProducto.GetAll)]
-        public IEnumerable<dominio.Producto> ListarProductos()
+        [HttpGet(RouteAlquiler.GetAll)]
+        public IEnumerable<dominio.Alquiler> ListarAlquiler()
         {
 
-            var listaProducto = _service.ListarProductos();
-            return listaProducto;
+            var listaAlquiler = _service.ListarProductos();
+            return listaAlquiler;
         }
 
-        [HttpGet(RouteProducto.GetById)]
-        public dominio.Producto BuscarProducto(int id)
+        [HttpGet(RouteAlquiler.GetById)]
+        public dominio.Producto BuscarAlquiler(int id)
         {
-            var objProducto = _service.BuscarPorId(id);
+            var objAlquiler = _service.BuscarPorId(id);
 
-            return objProducto;
+            return objAlquiler;
         }
 
-        [HttpPost(RouteProducto.Create)]
-        public ActionResult<dominio.Producto> CrearProducto([FromBody] dominio.Producto producto)
+        [HttpPost(RouteAlquiler.Create)]
+        public ActionResult<dominio.Producto> CrearProducto([FromBody] dominio.Alquiler producto)
         {
-            _service.Registrar(producto);
+            _service.Registrar(alquiler);
 
             return Ok();
         }
 
         
 
-        [HttpDelete(RouteProducto.Delete)]
+        [HttpDelete(RouteAlquiler.Delete)]
         public ActionResult<dominio.Producto> EliminarProducto(int id)
         {
             _service.Eliminar(id);
