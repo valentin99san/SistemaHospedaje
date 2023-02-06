@@ -1,50 +1,54 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Ms.Habitacion.API.Routes;
 using System.Collections;
 using dominio = Ms.Habitacion.Dominio.Entidades;
 using System.Collections.Generic;
-using Ms.Habitacion.Aplicacion.Entidades.Habitacion.Read;
-using Ms.Habitacion.Aplicacion.Entidades.Habitacion.Write;
-
+using static Ms.Habitacion.API.Routes.ApiRoutes;
+using Ms.Habitacion.Aplicacion.Habitacion;
 
 namespace Ms.Habitacion.API.Controllers
 {
     [ApiController]
-    public class HabitacionController
+    public class ProductoController : ControllerBase
     {
-        [HttpGet(ApiRoutes.RouteHabitacion.GetAll)]
-        public IEnumerable<dominio.Habitacion> ListarHabitaciones()
-        {
-            HabitacionQueryGetAll objProducto = new HabitacionQueryGetAll();
-            var listaHabitacion = objProducto.ListarHabitacion();
 
-            return listaHabitacion;
+        private readonly IHabitacionService _service;
+
+        public ProductoController(IHabitacionService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet(RouteHabitacion.GetAll)]
+        public IEnumerable<dominio.Habitacion> ListarProductos()
+        {
+
+            var listaProducto = _service.ListarHabitaciones();
+            return listaProducto;
+        }
+
+        [HttpGet(RouteHabitacion.GetById)]
+        public dominio.Habitacion BuscarProducto(int id)
+        {
+            var objProducto = _service.BuscarPorId(id);
+
+            return objProducto;
+        }
+
+        [HttpPost(RouteHabitacion.Create)]
+        public ActionResult<dominio.Habitacion> CrearProducto([FromBody] dominio.Habitacion producto)
+        {
+            _service.Registrar(producto);
+
+            return Ok();
         }
 
 
-        [HttpPost(ApiRoutes.RouteHabitacion.Create)]
-        public ActionResult<dominio.Habitacion> CrearHabitacion(dominio.Habitacion habitacion)
+        [HttpDelete(RouteHabitacion.Delete)]
+        public ActionResult<dominio.Habitacion> EliminarProducto(int id)
         {
-            HabitacionCommandCreate objHabitacion = new HabitacionCommandCreate();
-            return objHabitacion.CrearHabitacion(habitacion);
+            _service.Eliminar(id);
+
+            return Ok(id);
         }
-
-
-        [HttpPut(ApiRoutes.RouteHabitacion.Update)]
-        public ActionResult<dominio.Habitacion> ModificarProducto(dominio.Habitacion habitacion)
-        {
-            HabitacionCommandUpdate objHabitacion = new HabitacionCommandUpdate();
-            return objHabitacion.ModificarHabitacion(habitacion);
-        }
-
-
-        [HttpDelete(ApiRoutes.RouteHabitacion.Delete)]
-        public ActionResult<dominio.Habitacion> EliminarProducto(string id)
-        {
-            HabitacionCommandDelete objHabitacion = new HabitacionCommandDelete();
-            return objHabitacion.EliminarProducto(id);
-        }
-
-
     }
 }
