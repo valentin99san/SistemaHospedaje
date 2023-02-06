@@ -1,24 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
 	<ItemGroup>
-		<Compile Remove="Alquiler\Read\**" />
-		<Compile Remove="Alquiler\Write\**" />
-		<Compile Remove="Alquiler\Read\**" />
-		<Compile Remove="Alquiler\Write\**" />
-		<EmbeddedResource Remove="Alquiler\Read\**" />
-		<EmbeddedResource Remove="Alquiler\Write\**" />
-		<EmbeddedResource Remove="Alquiler\Read\**" />
-		<EmbeddedResource Remove="Alquiler\Write\**" />
-		<None Remove="Alquiler\Read\**" />
-		<None Remove="Alquiler\Write\**" />
-		<None Remove="Alquiler\Read\**" />
-		<None Remove="Alquiler\Write\**" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+		<PackageReference Include="MongoDB.Driver" Version="2.18.0" />
 	</ItemGroup>
 
 	<ItemGroup>

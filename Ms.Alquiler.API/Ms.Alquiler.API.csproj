@@ -12,4 +12,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\Ms.Alquiler.Aplicacion\Ms.Alquiler.Aplicacion.csproj" />
+		<ProjectReference Include="..\Ms.Alquiler.Dominio\Ms.Alquiler.Dominio.csproj" />
+		<ProjectReference Include="..\Ms.Alquiler.Infraestructura\Ms.Alquiler.Infraestructura.csproj" />
+	</ItemGroup>
+
+
 </Project>

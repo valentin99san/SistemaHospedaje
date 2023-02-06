@@ -5,59 +5,50 @@ using System.Collections.Generic;
 using static Ms.Alquiler.API.Routes.ApiRoutes;
 using Ms.Alquiler.Aplicacion.Alquiler;
 
-namespace Ms.Alquiler.Api.Controllers
+namespace Ms.Alquiler.API.Controllers
 {
     [ApiController]
-    public class AlquilerController : ControllerBase
+    public class ProductoController : ControllerBase
     {
-        private const object RouteAlquiler;
-        private readonly IProductoService _service;
 
-        public AlquilerController(IProductoService service)
+        private readonly IAlquilerService _service;
+
+        public ProductoController(IAlquilerService service)
         {
             _service = service;
         }
 
         [HttpGet(RouteAlquiler.GetAll)]
-        public IEnumerable<dominio.Alquiler> ListarAlquiler()
+        public IEnumerable<dominio.Alquiler> ListarProductos()
         {
 
-            var listaAlquiler = _service.ListarProductos();
-            return listaAlquiler;
+            var listaProducto = _service.ListarHabitaciones();
+            return listaProducto;
         }
 
         [HttpGet(RouteAlquiler.GetById)]
-        public dominio.Producto BuscarAlquiler(int id)
+        public dominio.Alquiler BuscarProducto(int id)
         {
-            var objAlquiler = _service.BuscarPorId(id);
+            var objProducto = _service.BuscarPorId(id);
 
-            return objAlquiler;
+            return objProducto;
         }
 
         [HttpPost(RouteAlquiler.Create)]
-        public ActionResult<dominio.Producto> CrearProducto([FromBody] dominio.Alquiler producto)
+        public ActionResult<dominio.Alquiler> CrearProducto([FromBody] dominio.Alquiler producto)
         {
-            _service.Registrar(alquiler);
+            _service.Registrar(producto);
 
             return Ok();
         }
 
-        
 
         [HttpDelete(RouteAlquiler.Delete)]
-        public ActionResult<dominio.Producto> EliminarProducto(int id)
+        public ActionResult<dominio.Alquiler> EliminarProducto(int id)
         {
             _service.Eliminar(id);
 
             return Ok(id);
-        }
-
-        [HttpPost(RouteAlquiler.ActualizarCuartos)]
-        public ActionResult<dominio.Producto> ActualizarCuartos([FromBody] dominio.Alquiler alquiler)
-        {
-            _service.ActualizarCuartos(alquiler.idAlquiler, alquiler.precio);
-
-            return Ok();
         }
     }
 }
