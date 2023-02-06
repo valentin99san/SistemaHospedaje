@@ -13,4 +13,10 @@
     <PackageReference Include="Swashbukle.AspNetCore" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ms.Pagos.Aplicacion\Ms.Pagos.Aplicacion.csproj" />
+    <ProjectReference Include="..\Ms.Pagos.Dominio\Ms.Pagos.Dominio.csproj" />
+    <ProjectReference Include="..\Ms.Pagos.Infraestructura\Ms.Pagos.Infraestructura.csproj" />
+  </ItemGroup>
+
 </Project>

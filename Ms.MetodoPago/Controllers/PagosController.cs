@@ -3,7 +3,9 @@ using Ms.MetodoPago.API.Routes;
 using System.Collections;
 using System.Collections.Generic;
 using dominio = Ms.Pagos.Dominio.Entidades;
-using Ms.Pagos.Aplicacion.Entidades.Pagos.Read;
+using Ms.Pagos.Aplicacion.Entidades.Read;
+using Ms.Pagos.Aplicacion.Entidades.Write;
+using Ms.Pagos.Aplicacion.Entidades.Update;
 
 namespace Ms.MetodoPago.API.Controllers
 {
@@ -11,12 +13,12 @@ namespace Ms.MetodoPago.API.Controllers
     public class PagosController
     {
         [HttpGet(ApiRoutes.RoutePagos.GetAll)]
-        public IEnumerable<dominio.Habitacion> ListarPagos()
+        public IEnumerable<dominio.Pagos> ListarPagos()
         {
-            PagosQueryGetAll objProducto = new PagosQueryGetAll();
-            var listaHabitacion = objProducto.ListarHabitacion();
+            PagosQueryGetAll objPagos = new PagosQueryGetAll();
+            var listaPagos = objPagos.ListarPagos();
 
-            return listaHabitacion;
+            return listaPagos;
         }
 
 
