@@ -16,7 +16,7 @@ namespace Ms.Habitacion.API.Controllers
         public IEnumerable<dominio.Habitacion> ListarHabitaciones()
         {
             HabitacionQueryGetAll objProducto = new HabitacionQueryGetAll();
-            var listaHabitacion = objProducto.ListarProductos();
+            var listaHabitacion = objProducto.ListarHabitacion();
 
             return listaHabitacion;
         }

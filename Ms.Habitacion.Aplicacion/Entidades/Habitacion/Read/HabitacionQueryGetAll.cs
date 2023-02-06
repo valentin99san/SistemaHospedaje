@@ -16,10 +16,10 @@ namespace Ms.Habitacion.Aplicacion.Entidades.Habitacion.Read
 
         public HabitacionQueryGetAll()
         {
-            _habitacion = _repository.db.GetCollection<dominio.Habitacion>("Habitacion");
+            _habitacion = _repository.db.GetCollection<dominio.Habitacion>("habitacion");
         }
 
-        public IEnumerable<dominio.Habitacion> ListarProductos()
+        public IEnumerable<dominio.Habitacion> ListarHabitacion()
         {
             return _habitacion.Find(x => true).ToList();
         }
