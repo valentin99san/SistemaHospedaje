@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
     <PackageReference Include="Release.MongoDB.Repository" Version="1.2.4" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Swashbukle.AspNetCore" Version="2.0.0" />
   </ItemGroup>
 

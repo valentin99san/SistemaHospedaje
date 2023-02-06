@@ -1,21 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Ms.MetodoPago.API.Routes;
+using System.Collections;
+using System.Collections.Generic;
+using dominio = Ms.Pagos.Dominio.Entidades;
+using Ms.Pagos.Aplicacion.Entidades.Pagos.Read;
 
 namespace Ms.MetodoPago.API.Controllers
 {
     [ApiController]
     public class PagosController
     {
-        [HttpGet(ApiRoutes.RouteHabitacion.GetAll)]
-        public IEnumerable<dominio.Habitacion> ListarHabitaciones()
+        [HttpGet(ApiRoutes.RoutePagos.GetAll)]
+        public IEnumerable<dominio.Habitacion> ListarPagos()
         {
-            HabitacionQueryGetAll objProducto = new HabitacionQueryGetAll();
+            PagosQueryGetAll objProducto = new PagosQueryGetAll();
             var listaHabitacion = objProducto.ListarHabitacion();
 
             return listaHabitacion;
         }
 
 
-        [HttpPost(ApiRoutes.RouteHabitacion.Create)]
+        [HttpPost(ApiRoutes.RoutePagos.Create)]
         public ActionResult<dominio.Habitacion> CrearHabitacion(dominio.Habitacion habitacion)
         {
             HabitacionCommandCreate objHabitacion = new HabitacionCommandCreate();
@@ -23,7 +28,7 @@ namespace Ms.MetodoPago.API.Controllers
         }
 
 
-        [HttpPut(ApiRoutes.RouteHabitacion.Update)]
+        [HttpPut(ApiRoutes.RoutePagos.Update)]
         public ActionResult<dominio.Habitacion> ModificarProducto(dominio.Habitacion habitacion)
         {
             HabitacionCommandUpdate objHabitacion = new HabitacionCommandUpdate();
@@ -31,7 +36,7 @@ namespace Ms.MetodoPago.API.Controllers
         }
 
 
-        [HttpDelete(ApiRoutes.RouteHabitacion.Delete)]
+        [HttpDelete(ApiRoutes.RoutePagos.Delete)]
         public ActionResult<dominio.Habitacion> EliminarProducto(string id)
         {
             HabitacionCommandDelete objHabitacion = new HabitacionCommandDelete();
