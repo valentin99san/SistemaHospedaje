@@ -1,41 +1,48 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Ms.MetodoPago.API.Routes;
+using System.Collections;
+using System.Collections.Generic;
+using dominio = Ms.Pagos.Dominio.Entidades;
+using Ms.Pagos.Aplicacion.Entidades.Read;
+using Ms.Pagos.Aplicacion.Entidades.Write;
+using Ms.Pagos.Aplicacion.Entidades.Update;
 
 namespace Ms.MetodoPago.API.Controllers
 {
     [ApiController]
     public class PagosController
     {
-        [HttpGet(ApiRoutes.RouteHabitacion.GetAll)]
-        public IEnumerable<dominio.Habitacion> ListarHabitaciones()
+        [HttpGet(ApiRoutes.RoutePagos.GetAll)]
+        public IEnumerable<dominio.Pagos> ListarPagos()
         {
-            HabitacionQueryGetAll objProducto = new HabitacionQueryGetAll();
-            var listaHabitacion = objProducto.ListarHabitacion();
+            PagosQueryGetAll objPagos = new PagosQueryGetAll();
+            var listaPagos = objPagos.ListarPagos();
 
-            return listaHabitacion;
+            return listaPagos;
         }
 
 
-        [HttpPost(ApiRoutes.RouteHabitacion.Create)]
-        public ActionResult<dominio.Habitacion> CrearHabitacion(dominio.Habitacion habitacion)
+        [HttpPost(ApiRoutes.RoutePagos.Create)]
+        public ActionResult<dominio.Pagos> CrearPagos(dominio.Pagos pagos)
         {
-            HabitacionCommandCreate objHabitacion = new HabitacionCommandCreate();
-            return objHabitacion.CrearHabitacion(habitacion);
+            PagosCommandCreate objPagos = new PagosCommandCreate();
+            return objPagos.CrearPagos(pagos);
         }
 
 
-        [HttpPut(ApiRoutes.RouteHabitacion.Update)]
-        public ActionResult<dominio.Habitacion> ModificarProducto(dominio.Habitacion habitacion)
+        [HttpPut(ApiRoutes.RoutePagos.Update)]
+        public ActionResult<dominio.Pagos> ModificarPagos(dominio.Pagos pagos)
         {
-            HabitacionCommandUpdate objHabitacion = new HabitacionCommandUpdate();
-            return objHabitacion.ModificarHabitacion(habitacion);
+            PagosCommandUpdate objPagos = new PagosCommandUpdate();
+            return objPagos.ModificarPagos(pagos);
         }
 
 
-        [HttpDelete(ApiRoutes.RouteHabitacion.Delete)]
-        public ActionResult<dominio.Habitacion> EliminarProducto(string id)
+        [HttpDelete(ApiRoutes.RoutePagos.Delete)]
+        public ActionResult<dominio.Pagos> EliminarPagos(string id)
         {
-            HabitacionCommandDelete objHabitacion = new HabitacionCommandDelete();
-            return objHabitacion.EliminarProducto(id);
+            PagosCommandDelete objPagos = new PagosCommandDelete();
+            return objPagos.EliminarPagos(id);
         }
     }
 }

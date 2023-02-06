@@ -6,7 +6,7 @@
         public const string Version = "v1";
         public const string Base = Root + "/" + Version;
 
-        public static class RouteHabitacion
+        public static class RoutePagos
         {
             //Read
             public const string GetAll = Base + "/pagos/all";
