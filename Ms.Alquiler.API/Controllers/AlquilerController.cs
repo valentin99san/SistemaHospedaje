@@ -9,7 +9,7 @@ namespace TDA.Ms.Producto.Api.Controllers
     [ApiController]
     public class AlquilerController : ControllerBase
     {
-
+        private const object RouteAlquiler;
         private readonly IProductoService _service;
 
         public AlquilerController(IProductoService service)
@@ -41,31 +41,7 @@ namespace TDA.Ms.Producto.Api.Controllers
             return Ok();
         }
 
-        //[HttpPut(RouteProducto.Update)]
-        //public ActionResult<dominio.Producto> ModificarProducto(dominio.Producto producto)
-        //{
-        //    #region Conexión a base de datos
-        //    var client = new MongoClient("mongodb://localhost:27017");
-        //    var database = client.GetDatabase("TDB_productos");
-        //    var collection = database.GetCollection<dominio.Producto>("producto");
-        //    #endregion
-
-        //    collection.FindOneAndReplace(x => x._id == producto._id, producto);
-
-        //    //var oldProducto = collection.Find(x => x.IdProducto == producto.IdProducto).FirstOrDefault();
-        //    //oldProducto.Nombre = producto.Nombre;
-        //    //oldProducto.Precio = producto.Precio;
-        //    //oldProducto.Cantidad = producto.Cantidad;
-        //    //collection.ReplaceOne(x=>x.IdProducto == oldProducto.IdProducto, oldProducto);
-
-
-        //    //Producto productoModificado = listaProducto.Single(x => x.IdProducto == producto.IdProducto);
-        //    //productoModificado.Nombre = producto.Nombre;
-        //    //productoModificado.Cantidad = producto.Cantidad;
-        //    //productoModificado.Precio= producto.Precio;
-        //    //return CreatedAtAction("ModificarProducto", productoModificado);
-        //    return Ok();
-        //}
+        
 
         [HttpDelete(RouteProducto.Delete)]
         public ActionResult<dominio.Producto> EliminarProducto(int id)
@@ -75,10 +51,10 @@ namespace TDA.Ms.Producto.Api.Controllers
             return Ok(id);
         }
 
-        [HttpPost(RouteProducto.ActualizarStock)]
-        public ActionResult<dominio.Producto> ActualizarStock([FromBody] dominio.Producto producto)
+        [HttpPost(RouteAlquiler.ActualizarCuartos)]
+        public ActionResult<dominio.Producto> ActualizarCuartos([FromBody] dominio.Alquiler alquiler)
         {
-            _service.ActualizarStock(producto.idProducto, producto.cantidad);
+            _service.ActualizarCuartos(alquiler.idAlquiler, alquiler.precio);
 
             return Ok();
         }

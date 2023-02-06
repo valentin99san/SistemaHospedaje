@@ -5,7 +5,7 @@ using Ms.Alquiler.Aplicacion.Alquiler;
 using static Ms.Alquiler.API.Routes.ApiRoutes;
 using dominio = Ms.Alquiler.Dominio.Entidades;
 
-namespace TDA.Ms.Producto.Api.Controllers
+namespace Ms.Alquiler.Api.Controllers
 {
     [ApiController]
     public class TipoController : ControllerBase
@@ -27,7 +27,7 @@ namespace TDA.Ms.Producto.Api.Controllers
         }
 
         [HttpGet(RouteTipo.GetById)]
-        public dominio.Categoria BuscarCategoria(int id)
+        public dominio.Categoria BuscarTipo(int id)
         {
             var objCategoria = _service.BuscarPorId(id);
 
@@ -35,7 +35,7 @@ namespace TDA.Ms.Producto.Api.Controllers
         }
 
         [HttpPost(RouteTipo.Create)]
-        public ActionResult<dominio.Categoria> CrearTipo([FromBody] dominio.Tipo tipo)
+        public ActionResult<dominio.Tipo> CrearTipo([FromBody] dominio.Tipo tipo)
         {
             _service.Registrar(tipo);
 
