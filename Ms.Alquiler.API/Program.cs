@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TDA.Ms.Producto.Api
+namespace Ms.alquiler.Api
 {
     public class Program
     {

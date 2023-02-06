@@ -7,12 +7,12 @@ using dominio = TDA.Ms.Producto.Dominio.Entidades;
 namespace TDA.Ms.Producto.Api.Controllers
 {
     [ApiController]
-    public class ProductoController : ControllerBase
+    public class AlquilerController : ControllerBase
     {
 
         private readonly IProductoService _service;
 
-        public ProductoController(IProductoService service)
+        public AlquilerController(IProductoService service)
         {
             _service = service;
         }
