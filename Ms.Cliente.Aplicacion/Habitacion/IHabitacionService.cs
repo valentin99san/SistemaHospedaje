@@ -14,8 +14,8 @@ namespace Ms.Cliente.Aplicacion.Cliente
         dominio.Cliente BuscarPorId(int idCliente);
 
         // Write
-        bool Registrar(dominio.Cliente habitacion);
-        bool Modificar(dominio.Cliente habitacion);
+        bool Registrar(dominio.Cliente cliente);
+        bool Modificar(dominio.Cliente cliente);
         void Eliminar(int idCliente);
         bool ActualizarStock(int idCliente);
     }

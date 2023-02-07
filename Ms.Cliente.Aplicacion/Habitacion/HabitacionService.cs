@@ -10,20 +10,20 @@ namespace Ms.Cliente.Aplicacion.Cliente
 {
     public class ClienteService : IClienteService
     {
-        private readonly ICollectionContext<dominio.Cliente> _habitacion;
-        private readonly IBaseRepository<dominio.Cliente> _habitacionR;
+        private readonly ICollectionContext<dominio.Cliente> _cliente;
+        private readonly IBaseRepository<dominio.Cliente> _clienteR;
 
-        public ClienteService(ICollectionContext<dominio.Cliente> habitacion,
-                                IBaseRepository<dominio.Cliente> habitacionR)
+        public ClienteService(ICollectionContext<dominio.Cliente> cliente,
+                                IBaseRepository<dominio.Cliente> clienteR)
         {
-            _habitacion = habitacion;
-            _habitacionR = habitacionR;
+            _cliente = cliente;
+            _clienteR = clienteR;
         }
 
         public List<dominio.Cliente> ListarClientees()
         {
             Expression<Func<dominio.Cliente, bool>> filter = s => s.esEliminado == false;
-            var items = (_habitacion.Context().FindAsync(filter, null).Result).ToList();
+            var items = (_cliente.Context().FindAsync(filter, null).Result).ToList();
             return items;
         }
 
@@ -35,22 +35,22 @@ namespace Ms.Cliente.Aplicacion.Cliente
 
             // _producto.Context().InsertOne(producto);                       
 
-            var p = _habitacionR.InsertOne(producto);
+            var p = _clienteR.InsertOne(producto);
 
             return true;
         }
 
-        public dominio.Cliente BuscarPorId(int idhabitacion)
+        public dominio.Cliente BuscarPorId(int idcliente)
         {
-            Expression<Func<dominio.Cliente, bool>> filter = s => s.esEliminado == false && s.id_habit == idhabitacion;
-            var item = (_habitacion.Context().FindAsync(filter, null).Result).FirstOrDefault();
+            Expression<Func<dominio.Cliente, bool>> filter = s => s.esEliminado == false && s.id_habit == idcliente;
+            var item = (_cliente.Context().FindAsync(filter, null).Result).FirstOrDefault();
             return item;
         }
 
         public void Eliminar(int idCliente)
         {
             Expression<Func<dominio.Cliente, bool>> filter = s => s.esEliminado == false && s.id_habit == idCliente;
-            var item = (_habitacion.Context().FindOneAndDelete(filter, null));
+            var item = (_cliente.Context().FindOneAndDelete(filter, null));
 
         }
 
@@ -61,9 +61,9 @@ namespace Ms.Cliente.Aplicacion.Cliente
 
         public bool ActualizarStock(int idCliente)
         {
-            var habitacion = BuscarPorId(idCliente);
+            var cliente = BuscarPorId(idCliente);
 
-            _habitacionR.UpdateOne(habitacion.id, habitacion);
+            _clienteR.UpdateOne(cliente.id, cliente);
 
             return true;
         }

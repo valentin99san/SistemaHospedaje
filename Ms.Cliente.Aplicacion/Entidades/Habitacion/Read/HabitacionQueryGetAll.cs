@@ -12,16 +12,16 @@ namespace Ms.Cliente.Aplicacion.Entidades.Cliente.Read
     public class ClienteQueryGetAll
     {
         internal DBRepository _repository = new DBRepository();
-        private IMongoCollection<dominio.Cliente> _habitacion;
+        private IMongoCollection<dominio.Cliente> _cliente;
 
         public ClienteQueryGetAll()
         {
-            _habitacion = _repository.db.GetCollection<dominio.Cliente>("habitacion");
+            _cliente = _repository.db.GetCollection<dominio.Cliente>("cliente");
         }
 
         public IEnumerable<dominio.Cliente> ListarCliente()
         {
-            return _habitacion.Find(x => true).ToList();
+            return _cliente.Find(x => true).ToList();
         }
     }
 }

@@ -13,18 +13,18 @@ namespace Ms.Cliente.Aplicacion.Entidades.Cliente.Write
     public class ClienteCommandDelete
     {
         internal DBRepository _repository = new DBRepository();
-        private IMongoCollection<dominio.Cliente> _habitacion;
+        private IMongoCollection<dominio.Cliente> _cliente;
 
         public ClienteCommandDelete()
         {
-            _habitacion = _repository.db.GetCollection<dominio.Cliente>("Cliente");
+            _cliente = _repository.db.GetCollection<dominio.Cliente>("Cliente");
         }
 
         public ActionResult<dominio.Cliente> Ok { get; private set; }
 
         public ActionResult<dominio.Cliente> EliminarProducto(string id)
         {
-            _habitacion.DeleteOne(x => x._id == id);
+            _cliente.DeleteOne(x => x._id == id);
             return Ok;
         }
     }

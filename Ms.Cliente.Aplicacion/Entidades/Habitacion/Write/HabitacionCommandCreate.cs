@@ -15,23 +15,23 @@ namespace Ms.Cliente.Aplicacion.Entidades.Cliente.Write
     public class ClienteCommandCreate
     {
         internal DBRepository _repository = new DBRepository();
-        private IMongoCollection<dominio.Cliente> _habitacion;
+        private IMongoCollection<dominio.Cliente> _cliente;
         
 
         public ClienteCommandCreate()
         {      
-            _habitacion = _repository.db.GetCollection<dominio.Cliente>("Cliente");
+            _cliente = _repository.db.GetCollection<dominio.Cliente>("Cliente");
         }
 
-        public ActionResult<dominio.Cliente> CrearCliente(dominio.Cliente habitacion)
+        public ActionResult<dominio.Cliente> CrearCliente(dominio.Cliente cliente)
         {
-            habitacion._id = ObjectId.GenerateNewId().ToString();
-            _habitacion.InsertOne(habitacion);        
+            cliente._id = ObjectId.GenerateNewId().ToString();
+            _cliente.InsertOne(cliente);        
            
-           return CreatedAtAction("CrearCliente", habitacion);
+           return CreatedAtAction("CrearCliente", cliente);
         }
 
-        private ActionResult<dominio.Cliente> CreatedAtAction(string v, dominio.Cliente habitacion)
+        private ActionResult<dominio.Cliente> CreatedAtAction(string v, dominio.Cliente cliente)
         {
             throw new NotImplementedException();
         }

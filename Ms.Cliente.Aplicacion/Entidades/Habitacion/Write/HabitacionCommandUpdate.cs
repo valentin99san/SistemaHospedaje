@@ -13,20 +13,20 @@ namespace Ms.Cliente.Aplicacion.Entidades.Cliente.Write
     public class ClienteCommandUpdate
     {
         internal DBRepository _repository = new DBRepository();
-        private IMongoCollection<dominio.Cliente> _habitacion;
+        private IMongoCollection<dominio.Cliente> _cliente;
 
         public ClienteCommandUpdate()
         {
-            _habitacion = _repository.db.GetCollection<dominio.Cliente>("Cliente");
+            _cliente = _repository.db.GetCollection<dominio.Cliente>("Cliente");
         }
 
-        public ActionResult<dominio.Cliente> ModificarCliente(dominio.Cliente habitacion)
+        public ActionResult<dominio.Cliente> ModificarCliente(dominio.Cliente cliente)
         {
-            _habitacion.ReplaceOne(x => x._id == habitacion._id, habitacion);
-            return CreatedAtAction("ModificarCliente", habitacion);
+            _cliente.ReplaceOne(x => x._id == cliente._id, cliente);
+            return CreatedAtAction("ModificarCliente", cliente);
         }
 
-        private ActionResult<dominio.Cliente> CreatedAtAction(string v, dominio.Cliente habitacion)
+        private ActionResult<dominio.Cliente> CreatedAtAction(string v, dominio.Cliente cliente)
         {
             throw new NotImplementedException();
         }
