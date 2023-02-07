@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ms.Habitacion.API.Controllers
+namespace Ms.Cliente.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

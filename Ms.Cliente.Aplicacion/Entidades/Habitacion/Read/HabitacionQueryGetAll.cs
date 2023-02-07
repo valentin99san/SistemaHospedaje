@@ -1,25 +1,25 @@
-﻿using Ms.Habitacion.Infraestructura.DBRepository;
+﻿using Ms.Cliente.Infraestructura.DBRepository;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using dominio = Ms.Habitacion.Dominio.Entidades;
+using dominio = Ms.Cliente.Dominio.Entidades;
 
-namespace Ms.Habitacion.Aplicacion.Entidades.Habitacion.Read
+namespace Ms.Cliente.Aplicacion.Entidades.Cliente.Read
 {
-    public class HabitacionQueryGetAll
+    public class ClienteQueryGetAll
     {
         internal DBRepository _repository = new DBRepository();
-        private IMongoCollection<dominio.Habitacion> _habitacion;
+        private IMongoCollection<dominio.Cliente> _habitacion;
 
-        public HabitacionQueryGetAll()
+        public ClienteQueryGetAll()
         {
-            _habitacion = _repository.db.GetCollection<dominio.Habitacion>("habitacion");
+            _habitacion = _repository.db.GetCollection<dominio.Cliente>("habitacion");
         }
 
-        public IEnumerable<dominio.Habitacion> ListarHabitacion()
+        public IEnumerable<dominio.Cliente> ListarCliente()
         {
             return _habitacion.Find(x => true).ToList();
         }

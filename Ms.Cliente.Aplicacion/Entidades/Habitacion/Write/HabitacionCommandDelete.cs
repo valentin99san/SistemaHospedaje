@@ -1,28 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
-using Ms.Habitacion.Infraestructura.DBRepository;
+using Ms.Cliente.Infraestructura.DBRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using dominio = Ms.Habitacion.Dominio.Entidades;
+using dominio = Ms.Cliente.Dominio.Entidades;
 
-namespace Ms.Habitacion.Aplicacion.Entidades.Habitacion.Write
+namespace Ms.Cliente.Aplicacion.Entidades.Cliente.Write
 {
-    public class HabitacionCommandDelete
+    public class ClienteCommandDelete
     {
         internal DBRepository _repository = new DBRepository();
-        private IMongoCollection<dominio.Habitacion> _habitacion;
+        private IMongoCollection<dominio.Cliente> _habitacion;
 
-        public HabitacionCommandDelete()
+        public ClienteCommandDelete()
         {
-            _habitacion = _repository.db.GetCollection<dominio.Habitacion>("Habitacion");
+            _habitacion = _repository.db.GetCollection<dominio.Cliente>("Cliente");
         }
 
-        public ActionResult<dominio.Habitacion> Ok { get; private set; }
+        public ActionResult<dominio.Cliente> Ok { get; private set; }
 
-        public ActionResult<dominio.Habitacion> EliminarProducto(string id)
+        public ActionResult<dominio.Cliente> EliminarProducto(string id)
         {
             _habitacion.DeleteOne(x => x._id == id);
             return Ok;

@@ -1,6 +1,6 @@
 using System;
 
-namespace Ms.Habitacion.API
+namespace Ms.Cliente.API
 {
     public class WeatherForecast
     {

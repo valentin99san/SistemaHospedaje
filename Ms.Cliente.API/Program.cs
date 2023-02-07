@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ms.Habitacion.API
+namespace Ms.Cliente.API
 {
     public class Program
     {

@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
-using Ms.Habitacion.Infraestructura;
+using Ms.Cliente.Infraestructura;
 using Release.MongoDB.Repository;
-using dominio = Ms.Habitacion.Dominio.Entidades;
-using Ms.Habitacion.Aplicacion.Habitacion;
+using dominio = Ms.Cliente.Dominio.Entidades;
+using Ms.Cliente.Aplicacion.Cliente;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace Ms.Habitacion.Aplicacion
+namespace Ms.Cliente.Aplicacion
 {
     public static class DependencyInjection
     {
@@ -26,18 +26,18 @@ namespace Ms.Habitacion.Aplicacion
             services.AddScoped<IDbContext>(x => new DbContext(dbUrl));
 
             //Entidades            
-            services.TryAddScoped<ICollectionContext<dominio.Habitacion>>(x => new CollectionContext<dominio.Habitacion>(x.GetService<IDbContext>()));
+            services.TryAddScoped<ICollectionContext<dominio.Cliente>>(x => new CollectionContext<dominio.Cliente>(x.GetService<IDbContext>()));
             
 
             //Como Repo
-            services.TryAddScoped<IBaseRepository<dominio.Habitacion>>(x => new BaseRepository<dominio.Habitacion>(x.GetService<IDbContext>()));
+            services.TryAddScoped<IBaseRepository<dominio.Cliente>>(x => new BaseRepository<dominio.Cliente>(x.GetService<IDbContext>()));
            
 
             #endregion
 
             #region Servicios
 
-            services.AddScoped<IHabitacionService, HabitacionService>();
+            services.AddScoped<IClienteService, ClienteService>();
             
 
             #endregion

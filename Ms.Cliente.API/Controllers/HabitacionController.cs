@@ -1,41 +1,41 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections;
-using dominio = Ms.Habitacion.Dominio.Entidades;
+using dominio = Ms.Cliente.Dominio.Entidades;
 using System.Collections.Generic;
-using static Ms.Habitacion.API.Routes.ApiRoutes;
-using Ms.Habitacion.Aplicacion.Habitacion;
+using static Ms.Cliente.API.Routes.ApiRoutes;
+using Ms.Cliente.Aplicacion.Cliente;
 
-namespace Ms.Habitacion.API.Controllers
+namespace Ms.Cliente.API.Controllers
 {
     [ApiController]
     public class ProductoController : ControllerBase
     {
 
-        private readonly IHabitacionService _service;
+        private readonly IClienteService _service;
 
-        public ProductoController(IHabitacionService service)
+        public ProductoController(IClienteService service)
         {
             _service = service;
         }
 
-        [HttpGet(RouteHabitacion.GetAll)]
-        public IEnumerable<dominio.Habitacion> ListarProductos()
+        [HttpGet(RouteCliente.GetAll)]
+        public IEnumerable<dominio.Cliente> ListarProductos()
         {
 
-            var listaProducto = _service.ListarHabitaciones();
+            var listaProducto = _service.ListarClientees();
             return listaProducto;
         }
 
-        [HttpGet(RouteHabitacion.GetById)]
-        public dominio.Habitacion BuscarProducto(int id)
+        [HttpGet(RouteCliente.GetById)]
+        public dominio.Cliente BuscarProducto(int id)
         {
             var objProducto = _service.BuscarPorId(id);
 
             return objProducto;
         }
 
-        [HttpPost(RouteHabitacion.Create)]
-        public ActionResult<dominio.Habitacion> CrearProducto([FromBody] dominio.Habitacion producto)
+        [HttpPost(RouteCliente.Create)]
+        public ActionResult<dominio.Cliente> CrearProducto([FromBody] dominio.Cliente producto)
         {
             _service.Registrar(producto);
 
@@ -43,8 +43,8 @@ namespace Ms.Habitacion.API.Controllers
         }
 
 
-        [HttpDelete(RouteHabitacion.Delete)]
-        public ActionResult<dominio.Habitacion> EliminarProducto(int id)
+        [HttpDelete(RouteCliente.Delete)]
+        public ActionResult<dominio.Cliente> EliminarProducto(int id)
         {
             _service.Eliminar(id);
 

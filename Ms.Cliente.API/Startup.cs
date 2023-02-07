@@ -6,13 +6,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Ms.Habitacion.Aplicacion;
+using Ms.Cliente.Aplicacion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ms.Habitacion.API
+namespace Ms.Cliente.API
 {
     public class Startup
     {

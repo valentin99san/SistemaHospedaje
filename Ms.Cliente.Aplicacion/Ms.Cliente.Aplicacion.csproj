@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ms.Habitacion.Dominio\Ms.Habitacion.Dominio.csproj" />
-    <ProjectReference Include="..\Ms.Habitacion.Infraestructura\Ms.Habitacion.Infraestructura.csproj" />
+    <ProjectReference Include="..\Ms.Cliente.Dominio\Ms.Cliente.Dominio.csproj" />
+    <ProjectReference Include="..\Ms.Cliente.Infraestructura\Ms.Cliente.Infraestructura.csproj" />
   </ItemGroup>
 
 </Project>

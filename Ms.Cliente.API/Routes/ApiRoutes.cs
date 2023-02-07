@@ -1,4 +1,4 @@
-﻿namespace Ms.Habitacion.API.Routes
+﻿namespace Ms.Cliente.API.Routes
 {
     public class ApiRoutes
     {
@@ -6,7 +6,7 @@
         public const string Version = "v1";
         public const string Base = Root + "/" + Version;
 
-        public static class RouteHabitacion
+        public static class RouteCliente
         {
             //Read
             public const string GetAll = Base + "/habitacion/all";

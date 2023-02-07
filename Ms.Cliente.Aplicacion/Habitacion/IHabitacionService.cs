@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using dominio = Ms.Habitacion.Dominio.Entidades;
+using dominio = Ms.Cliente.Dominio.Entidades;
 
-namespace Ms.Habitacion.Aplicacion.Habitacion
+namespace Ms.Cliente.Aplicacion.Cliente
 {
-    public interface IHabitacionService
+    public interface IClienteService
     {
         // Read
-        List<dominio.Habitacion> ListarHabitaciones();
-        dominio.Habitacion BuscarPorId(int idHabitacion);
+        List<dominio.Cliente> ListarClientees();
+        dominio.Cliente BuscarPorId(int idCliente);
 
         // Write
-        bool Registrar(dominio.Habitacion habitacion);
-        bool Modificar(dominio.Habitacion habitacion);
-        void Eliminar(int idHabitacion);
-        bool ActualizarStock(int idHabitacion);
+        bool Registrar(dominio.Cliente habitacion);
+        bool Modificar(dominio.Cliente habitacion);
+        void Eliminar(int idCliente);
+        bool ActualizarStock(int idCliente);
     }
 }
