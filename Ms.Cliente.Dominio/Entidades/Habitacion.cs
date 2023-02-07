@@ -14,14 +14,14 @@ namespace Ms.Cliente.Dominio.Entidades
     [BsonIgnoreExtraElements]
     public class Cliente : EntityToLower<ObjectId>
     {
-        public int id_habit { get; set; }
+        public int id_client { get; set; }
 
-        public int num_habit { get; set; }
+        public int num_client { get; set; }
 
         public int num_piso { get; set; }
 
-        public string estado_habit { get; set; }
+        public string estado_client { get; set; }
 
-        public string tipo_habit { get; set; }
+        public string tipo_client { get; set; }
     }
 }
