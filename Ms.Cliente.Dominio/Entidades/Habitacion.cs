@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 using Release.MongoDB.Repository;
 using Release.MongoDB.Repository.Model;
 
-namespace Ms.Habitacion.Dominio.Entidades
+namespace Ms.Cliente.Dominio.Entidades
 {
-    [CollectionProperty("Habitacion")]
+    [CollectionProperty("Cliente")]
     [BsonIgnoreExtraElements]
-    public class Habitacion : EntityToLower<ObjectId>
+    public class Cliente : EntityToLower<ObjectId>
     {
         public int id_habit { get; set; }
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ms.Habitacion.Infraestructura.DBRepository
+namespace Ms.Cliente.Infraestructura.DBRepository
 {
     public class DBRepository
     {
@@ -15,7 +15,7 @@ namespace Ms.Habitacion.Infraestructura.DBRepository
         public DBRepository()
         {
             client = new MongoClient("mongodb://localhost:27017");
-            db = client.GetDatabase("DB_Habitacion");
+            db = client.GetDatabase("DB_Cliente");
         }
     }
 }
