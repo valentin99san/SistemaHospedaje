@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ms.Pagos.Infraestructura", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ms.Alquiler.API", "Ms.Alquiler.API\Ms.Alquiler.API.csproj", "{ABBD66C1-E881-4E2E-8301-1239D7D6AF53}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ms.Alquiler.Aplicación", "Ms.Alquiler.Aplicación\Ms.Alquiler.Aplicación.csproj", "{DA1F79A8-DB4A-4BDC-BB6D-5AE8249C72C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ms.Alquiler.Aplicacion", "Ms.Alquiler.Aplicación\Ms.Alquiler.Aplicacion.csproj", "{DA1F79A8-DB4A-4BDC-BB6D-5AE8249C72C3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ms.Alquiler.Dominio", "Ms.Alquiler.Dominio\Ms.Alquiler.Dominio.csproj", "{B11E3469-7ED2-4334-9A67-EFA013466533}"
 EndProject
