@@ -6,6 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Ms.Pago.Aplicacion;
+using Ms.Pago.Infraestructura;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +30,9 @@ namespace Ms.MetodoPago.API
         {
             services.AddControllers();
             services.AddSwaggerGen();
+            services.AddAplicacion(Configuration);
+            //services.Configure<DBSettings>(Configuration.GetSection("DBSettings"));
+            //services.AddSingleton<IDBSettings>(x => x.GetRequiredService<IOptions<DBSettings>>().Value);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +54,12 @@ namespace Ms.MetodoPago.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapGet("/",
+                   async context =>
+                   {
+                       string color = env.IsDevelopment() ? "Gray" : "Green";
+                       await context.Response.WriteAsync($"<h1 style='color:{color};'>[MS.Api] Environment: <a href='/swagger'>{env.EnvironmentName}</a></h1>");
+                   });
             });
         }
     }

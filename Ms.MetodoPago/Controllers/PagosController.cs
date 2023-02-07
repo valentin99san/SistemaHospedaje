@@ -1,48 +1,74 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Ms.MetodoPago.API.Routes;
+using static Ms.MetodoPago.API.Routes.ApiRoutes;
 using System.Collections;
 using System.Collections.Generic;
-using dominio = Ms.Pagos.Dominio.Entidades;
-using Ms.Pagos.Aplicacion.Entidades.Read;
-using Ms.Pagos.Aplicacion.Entidades.Write;
-using Ms.Pagos.Aplicacion.Entidades.Update;
+using dominio = Ms.Pago.Dominio.Entidades;
+using Ms.Pago.Aplicacion;
+using Ms.Pago.Aplicacion.Entidades.Write;
+using Ms.Pago.Aplicacion.Entidades.Read;
+using Ms.Pago.Aplicacion.Services;
 
 namespace Ms.MetodoPago.API.Controllers
 {
     [ApiController]
-    public class PagosController
+    public class PagosController : ControllerBase
     {
-        [HttpGet(ApiRoutes.RoutePagos.GetAll)]
+        private readonly IPagoService _service;
+
+        public PagosController(IPagoService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet(RoutePagos.GetAll)]
         public IEnumerable<dominio.Pagos> ListarPagos()
         {
-            PagosQueryGetAll objPagos = new PagosQueryGetAll();
-            var listaPagos = objPagos.ListarPagos();
+            //PagosQueryGetAll objPagos = new PagosQueryGetAll();
+            var listaPagos = _service.ListarPagos();
 
             return listaPagos;
         }
 
-
-        [HttpPost(ApiRoutes.RoutePagos.Create)]
-        public ActionResult<dominio.Pagos> CrearPagos(dominio.Pagos pagos)
+        [HttpGet(RoutePagos.GetById)]
+        public dominio.Pagos BuscarPagos(int id)
         {
-            PagosCommandCreate objPagos = new PagosCommandCreate();
-            return objPagos.CrearPagos(pagos);
+            var objPagos = _service.BuscarPorId(id);
+
+            return objPagos;
         }
 
-
-        [HttpPut(ApiRoutes.RoutePagos.Update)]
-        public ActionResult<dominio.Pagos> ModificarPagos(dominio.Pagos pagos)
+        [HttpPost(RoutePagos.Create)]
+        public ActionResult<dominio.Pagos> CrearPagos([FromBody] dominio.Pagos pago)
         {
-            PagosCommandUpdate objPagos = new PagosCommandUpdate();
-            return objPagos.ModificarPagos(pagos);
+            _service.Registrar(pago);
+
+            return Ok();
         }
 
-
-        [HttpDelete(ApiRoutes.RoutePagos.Delete)]
-        public ActionResult<dominio.Pagos> EliminarPagos(string id)
+        [HttpDelete(RoutePagos.Delete)]
+        public ActionResult<dominio.Pagos> EliminarPagos(int id)
         {
-            PagosCommandDelete objPagos = new PagosCommandDelete();
-            return objPagos.EliminarPagos(id);
+            _service.Eliminar(id);
+
+            return Ok(id);
         }
+
+        //[HttpPut(RoutePagos.Update)]
+        //public ActionResult<dominio.Pagos> ModificarPagos(dominio.Pagos pagos)
+        //{
+        //    PagosCommandUpdate objPagos = new PagosCommandUpdate();
+        //    return objPagos.ModificarPagos(pagos);
+        //}
+
+        //[HttpPost(RoutePagos.Actualizar)]
+        //public ActionResult<dominio.Pagos> ActualizarStock([FromBody] dominio.Pagos pago)
+        //{
+        //    _service.ActualizarStock(producto.idProducto, producto.cantidad);
+
+        //    return Ok();
+        //}
+
+
+
     }
 }
