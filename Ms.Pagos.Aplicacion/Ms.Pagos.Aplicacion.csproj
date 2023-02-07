@@ -8,11 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Ms.Pagos.Dominio\Ms.Pagos.Dominio.csproj" />
     <ProjectReference Include="..\Ms.Pagos.Infraestructura\Ms.Pagos.Infraestructura.csproj" />
   </ItemGroup>
