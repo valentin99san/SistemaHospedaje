@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using dominio = Ms.Alquiler.Dominio.Entidades;
 using Release.MongoDB.Repository;
-using Ms.Habitacion.Dominio.Entidades;
+using Ms.Alquiler.Dominio.Entidades;
 
 namespace Ms.Alquiler.Aplicacion.Alquiler
 {
@@ -28,15 +28,15 @@ namespace Ms.Alquiler.Aplicacion.Alquiler
             return items;
         }
 
-        public bool Registrar(dominio.Alquiler producto)
+        public bool Registrar(dominio.Alquiler alquiler)
         {
-            producto.esEliminado = false;
-            producto.fechaCreacion = DateTime.Now;
-            producto.esActivo = true;
+            alquiler.esEliminado = false;
+            alquiler.fechaCreacion = DateTime.Now;
+            alquiler.esActivo = true;
 
-            // _producto.Context().InsertOne(producto);                       
+                                  
 
-            var p = _alquilerR.InsertOne(producto);
+            var p = _alquilerR.InsertOne(alquiler);
 
             return true;
         }
