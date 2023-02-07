@@ -5,11 +5,6 @@ using Ms.Cliente.Infraestructura;
 using Release.MongoDB.Repository;
 using dominio = Ms.Cliente.Dominio.Entidades;
 using Ms.Cliente.Aplicacion.Cliente;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Ms.Cliente.Aplicacion

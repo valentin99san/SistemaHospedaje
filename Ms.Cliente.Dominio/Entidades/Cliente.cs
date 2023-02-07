@@ -16,12 +16,10 @@ namespace Ms.Cliente.Dominio.Entidades
     {
         public int id_client { get; set; }
 
-        public int num_client { get; set; }
+        public string nombre_client { get; set; }
 
-        public int num_piso { get; set; }
+        public string apellido_client { get; set; }
 
-        public string estado_client { get; set; }
-
-        public string tipo_client { get; set; }
+        public string telefono_client { get; set; }
     }
 }
