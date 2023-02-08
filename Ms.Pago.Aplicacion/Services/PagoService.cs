@@ -41,16 +41,16 @@ namespace Ms.Pago.Aplicacion.Services
             return true;
         }
 
-        public dominio.Pagos BuscarPorId(int idpagos)
+        public dominio.Pagos BuscarPorId(int idComprobante)
         {
-            Expression<Func<dominio.Pagos, bool>> filter = s => s.esEliminado == false && s.idPago == idpagos;
+            Expression<Func<dominio.Pagos, bool>> filter = s => s.esEliminado == false && s.idComprobante == idComprobante;
             var item = (_pagos.Context().FindAsync(filter, null).Result).FirstOrDefault();
             return item;
         }
 
-        public void Eliminar(int idPagos)
+        public void Eliminar(int idComprobante)
         {
-            Expression<Func<dominio.Pagos, bool>> filter = s => s.esEliminado == false && s.idPago == idPagos;
+            Expression<Func<dominio.Pagos, bool>> filter = s => s.esEliminado == false && s.idComprobante == idComprobante;
             var item = (_pagos.Context().FindOneAndDelete(filter, null));
 
         }

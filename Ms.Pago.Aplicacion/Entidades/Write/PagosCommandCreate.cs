@@ -19,7 +19,7 @@ namespace Ms.Pago.Aplicacion.Entidades.Write
 
         public PagosCommandCreate()
         {
-            _pagos = _repository.db.GetCollection<dominio.Pagos>("Pagos");
+            _pagos = _repository.db.GetCollection<dominio.Pagos>("pagos");
         }
 
         public ActionResult<dominio.Pagos> CrearPagos(dominio.Pagos pagos)

@@ -17,7 +17,7 @@ namespace Ms.Pago.Aplicacion.Entidades.Write
 
         public PagosCommandDelete()
         {
-            _pagos = _repository.db.GetCollection<dominio.Pagos>("Pagos");
+            _pagos = _repository.db.GetCollection<dominio.Pagos>("pagos");
         }
 
         public ActionResult<dominio.Pagos> Ok { get; private set; }

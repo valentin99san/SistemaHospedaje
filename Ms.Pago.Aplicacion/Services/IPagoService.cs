@@ -10,12 +10,12 @@ namespace Ms.Pago.Aplicacion.Services
     public interface IPagoService
     {// Read
         List<dominio.Pagos> ListarPagos();
-        dominio.Pagos BuscarPorId(int idPagos);
+        dominio.Pagos BuscarPorId(int idComprobante);
 
         // Write
         bool Registrar(dominio.Pagos pagos);
         bool Modificar(dominio.Pagos pagos);
-        void Eliminar(int idPagos);
+        void Eliminar(int idComprobante);
         //bool ActualizarStock(int idPagos);
     }
 }

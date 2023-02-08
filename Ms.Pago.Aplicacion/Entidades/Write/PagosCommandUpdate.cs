@@ -17,12 +17,12 @@ namespace Ms.Pago.Aplicacion.Entidades.Write
 
         public PagosCommandUpdate()
         {
-            _pagos = _repository.db.GetCollection<dominio.Pagos>("Pagos");
+            _pagos = _repository.db.GetCollection<dominio.Pagos>("pagos");
         }
 
         public ActionResult<dominio.Pagos> ModificarPagos(dominio.Pagos pagos)
         {
-            _pagos.ReplaceOne(x => x.Id == pagos.Id, pagos);
+            _pagos.ReplaceOne(x => x.Id == pagos._id, pagos);
             return CreatedAtAction("ModificarPagos", pagos);
         }
 

@@ -14,6 +14,8 @@ namespace Ms.Pago.Dominio.Entidades
     [BsonIgnoreExtraElements]
     public class Pagos : EntityToLower<ObjectId>
     {
+        public object _id;
+
         //public int idPago;
 
         //[BsonId]
@@ -22,12 +24,13 @@ namespace Ms.Pago.Dominio.Entidades
 
         public int idComprobante { get; set; }
 
+        public int Cantidad { get; set; }
+
         public string detalleAlquiler { get; set; }
 
-        public double precioUnd { get; set; }
+        public decimal precioUnd { get; set; }
 
-        public double precioTotal { get; set; }
-
-        public double montoTotal { get; set; }
+        public decimal precioTotal { get; set; }
+        public string Id { get; set; }
     }
 }
